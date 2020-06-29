@@ -61,6 +61,10 @@ dependencies {
     implementation("org.koin:koin-androidx-scope:1.0.2")
     implementation("org.koin:koin-androidx-viewmodel:1.0.2")
 
+    //Room
+    implementation("androidx.room:room-runtime:2.2.5")
+    annotationProcessor("androidx.room:room-compiler:2.2.5")
+
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.4.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.4.0")

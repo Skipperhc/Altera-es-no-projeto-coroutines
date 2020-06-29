@@ -1,16 +1,23 @@
 package br.com.wellingtoncosta.coroutines.app.config
 
+import android.app.Application
+import android.content.Context
+import android.content.pm.ApplicationInfo
+import br.com.wellingtoncosta.coroutines.app.App
 import br.com.wellingtoncosta.coroutines.resources.repository.UserDataRepository
 import br.com.wellingtoncosta.coroutines.resources.remote.api.GithubApi
 import br.com.wellingtoncosta.coroutines.domain.repository.UserRepository
 import br.com.wellingtoncosta.coroutines.app.ui.ListUsersViewModel
 import br.com.wellingtoncosta.coroutines.app.ui.PagLoginViewModel
+import br.com.wellingtoncosta.coroutines.resources.room.UserAccessRepositoryRoom
+import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.ext.koin.viewModel
+import org.koin.dsl.module.applicationContext
 import org.koin.dsl.module.module
 
 val uiModule = module {
     viewModel { ListUsersViewModel(get()) }
-    viewModel { PagLoginViewModel(get()) }
+    viewModel { PagLoginViewModel(get(), androidContext()) }
 }
 
 val repositoryModule = module {
